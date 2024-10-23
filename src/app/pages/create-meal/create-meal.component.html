@@ -1,0 +1,58 @@
+<div class="create-meal-container">
+    <h1>Create a New Meal</h1>
+  
+    <mat-card class="meal-card">
+      <form [formGroup]="mealForm" (ngSubmit)="createMeal()"> <!-- Aquí se agrega (ngSubmit) -->
+        
+        <!-- Campo de Nombre de la Comida -->
+        <mat-form-field appearance="fill">
+          <mat-label>Food</mat-label>
+          <input matInput formControlName="foods" placeholder="Enter food name">
+        </mat-form-field>
+  
+        <!-- Campo de Tipo de Comida -->
+        <mat-form-field appearance="fill">
+          <mat-label>Food Type</mat-label>
+          <mat-select formControlName="food_type">
+            <mat-option value="vegetarian">Vegetarian</mat-option>
+            <mat-option value="vegan">Vegan</mat-option>
+            <mat-option value="non-vegetarian">Non-Vegetarian</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <!-- Campo de Tiempo de Comida (Combobox) -->
+        <mat-form-field appearance="fill">
+          <mat-label>Meal Time</mat-label>
+          <mat-select formControlName="meal_time">
+            <mat-option value="breakfast">Breakfast</mat-option>
+            <mat-option value="lunch">Lunch</mat-option>
+            <mat-option value="dinner">Dinner</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <!-- Campo de Tamaño de Porción -->
+        <mat-form-field appearance="fill">
+          <mat-label>Portion Size (grams)</mat-label>
+          <input matInput type="number" formControlName="portion_size" placeholder="Enter portion size">
+        </mat-form-field>
+  
+        <!-- Campo de Calorías -->
+        <mat-form-field appearance="fill">
+          <mat-label>Calories</mat-label>
+          <input matInput type="number" formControlName="calorias" placeholder="Enter calories (optional)">
+        </mat-form-field>
+  
+        <!-- Campo de Rating de la Dieta -->
+        <mat-form-field appearance="fill">
+          <mat-label>Diet Rating</mat-label>
+          <input matInput type="number" formControlName="diet_rating" placeholder="Enter diet rating (1-5)">
+        </mat-form-field>
+  
+        <div class="button-container">
+          <button type="submit" mat-raised-button color="primary" [disabled]="mealForm.invalid">add diete</button>
+          <button mat-raised-button color="warn" (click)="goHome()">Back to Home</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+  

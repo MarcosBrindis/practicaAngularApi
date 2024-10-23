@@ -1,0 +1,48 @@
+<h2 mat-dialog-title>Update Diet for {{data.diete.foods}}</h2>
+<mat-dialog-content class="dialog-content">
+  <p>Update your diet information:</p>
+
+  <!-- Food name input -->
+  <mat-form-field>
+    <mat-label>Food</mat-label>
+    <input matInput [(ngModel)]="foods" placeholder="Enter the food name" />
+  </mat-form-field>
+
+  <!-- Calories input (optional) -->
+  <mat-form-field>
+    <mat-label>Calories</mat-label>
+    <input matInput type="number" [(ngModel)]="calories" placeholder="Enter calories (optional)" />
+  </mat-form-field>
+
+  <!-- Food type input -->
+  <mat-form-field>
+    <mat-label>Food Type</mat-label>
+    <input matInput [(ngModel)]="food_type" placeholder="Enter food type" />
+  </mat-form-field>
+
+  <!-- Meal time combobox -->
+  <mat-form-field>
+    <mat-label>Meal Time</mat-label>
+    <mat-select [(ngModel)]="meal_time">
+      <mat-option value="breakfast">Breakfast</mat-option>
+      <mat-option value="lunch">Lunch</mat-option>
+      <mat-option value="dinner">Dinner</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Portion size input -->
+  <mat-form-field>
+    <mat-label>Portion Size (grams)</mat-label>
+    <input matInput type="number" [(ngModel)]="portion_size" placeholder="Enter portion size in grams" />
+  </mat-form-field>
+
+  <!-- Diet rating input -->
+  <mat-form-field>
+    <mat-label>Diet Rating</mat-label>
+    <input matInput type="number" [(ngModel)]="diet_rating" placeholder="Rate your diet (1-5)" />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="updateDiete()" cdkFocusInitial>Save</button>
+</mat-dialog-actions>
